@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { createStore } from 'redux';
 import reducer from '../reducers';
+import middleware from '../middleware';
 import { Provider } from 'react-redux';
 
-const store = createStore(reducer);
+const store = createStore(reducer, middleware);
 
 class App extends Component {
     render() {
