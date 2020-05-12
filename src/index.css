@@ -26,11 +26,8 @@ ul {
     text-align: center;
 }
 
+.selected,
 .bold {
-    font-weight: 800;
-}
-
-.selected {
     font-weight: 800;
 }
 
@@ -60,11 +57,18 @@ ul {
 
 .nav ul {
     display: flex;
-    margin-bottom: 40px;
 }
 
 .nav li {
+    display: flex;
+    align-items: center;
     padding: 20px;
+    height: 40px;
+}
+
+.logout:hover {
+    font-weight: 800;
+    cursor: pointer;
 }
 
 .login-card {
@@ -102,6 +106,10 @@ ul {
 
 .avatar {
     width: 100px;
+}
+
+.avatar--small {
+    width: 40px;
 }
 
 .username-container {
