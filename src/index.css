@@ -12,12 +12,21 @@ code {
         monospace;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 ul {
     padding-left: 0;
 }
 
 .center {
     text-align: center;
+}
+
+.selected {
+    font-weight: 800;
 }
 
 .loading-bar {

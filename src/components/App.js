@@ -16,7 +16,7 @@ class App extends Component {
                 <LoadingBar className='loading-bar' />
                 <div className='container'>
                     <Nav />
-                    <h1>Would You Rather...</h1>
+                    <h1 className='center'>Would You Rather...</h1>
                 </div>
             </div>
         );

@@ -1,12 +1,25 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Nav(props) {
     return (
         <nav className='nav'>
             <ul className='half'>
-                <li>Home</li>
-                <li>New Poll</li>
-                <li>Leaderboard</li>
+                <li>
+                    <NavLink to='/' exact={true} activeClassName='selected'>
+                        Home
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to='/new' activeClassName='selected'>
+                        New Poll
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to='/leaderboard' activeClassName='selected'>
+                        Leaderboard
+                    </NavLink>
+                </li>
             </ul>
             <ul className='half right'>
                 <li>John Judeh</li>
