@@ -6,7 +6,7 @@ function Nav(props) {
         <nav className='nav'>
             <ul className='half'>
                 <li>
-                    <NavLink to='/' exact={true} activeClassName='selected'>
+                    <NavLink to='/' exact activeClassName='selected'>
                         Home
                     </NavLink>
                 </li>
