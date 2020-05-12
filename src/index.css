@@ -12,8 +12,43 @@ code {
         monospace;
 }
 
+ul {
+    padding-left: 0;
+}
+
+.center {
+    text-align: center;
+}
+
 .loading-bar {
     background-color: red;
     height: 3px;
     position: absolute;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.half {
+    width: 50%;
+}
+
+.right {
+    justify-content: flex-end;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav li {
+    padding: 10px;
 }

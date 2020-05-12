@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading-bar';
 import { handleInitialData } from '../actions/shared';
+import Nav from './Nav';
 
 class App extends Component {
     componentDidMount() {
@@ -13,7 +14,10 @@ class App extends Component {
         return (
             <div>
                 <LoadingBar className='loading-bar' />
-                <h1>Would You Rather...</h1>
+                <div className='container'>
+                    <Nav />
+                    <h1>Would You Rather...</h1>
+                </div>
             </div>
         );
     }
