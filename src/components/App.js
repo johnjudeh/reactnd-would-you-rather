@@ -13,19 +13,31 @@ class App extends Component {
     }
 
     render() {
+        const { userLoggedIn } = this.props;
+
         return (
             <div>
                 <LoadingBar className='loading-bar' />
                 <div className='container'>
                     <Nav />
-                    <Login />
-                    <Route path='/' exact>
-                        {/* <h1 className='center'>Would You Rather...</h1> */}
-                    </Route>
+                    {userLoggedIn !== true
+                        ? <Login />
+                        : <div>
+                            <Route path='/' exact>
+                                <h1 className='center'>Would You Rather...</h1>
+                            </Route>
+                        </div>
+                    }
                 </div>
             </div>
         );
     }
 }
 
-export default connect()(App);
+function mapStateToProps({ authedUser }) {
+    return {
+        userLoggedIn: authedUser !== null ? true : false,
+    }
+}
+
+export default connect(mapStateToProps)(App);

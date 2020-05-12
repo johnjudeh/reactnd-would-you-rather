@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import UserCard from './UserCard';
 
-function Login(props) {
-    const { userIds } = props;
-
+function Login({ userIds }) {
     return (
         <div className='login-card'>
             <header className='login-card-header center'>
