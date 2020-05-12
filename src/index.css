@@ -11,3 +11,9 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
+.loading-bar {
+    background-color: red;
+    height: 3px;
+    position: absolute;
+}
