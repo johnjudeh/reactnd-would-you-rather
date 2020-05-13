@@ -30,7 +30,7 @@ class QuestionList extends Component {
 
         return (
             <div className='center'>
-                <h2>Poll List</h2>
+                <h1>Poll List</h1>
                 <div>
                     {QuestionList.VAL_LABELS.map((label, val) => (
                         <label key={label}>
