@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import { handleInitialData } from '../actions/shared';
 import Nav from './Nav';
 import Login from './Login';
+import QuestionList from './QuestionList';
 
 class App extends Component {
     componentDidMount() {
@@ -23,9 +24,7 @@ class App extends Component {
                     {userLoggedIn !== true
                         ? <Login />
                         : <div>
-                            <Route path='/' exact>
-                                <h1 className='center'>Would You Rather...</h1>
-                            </Route>
+                            <Route path='/' exact component={QuestionList} />
                         </div>
                     }
                 </div>
