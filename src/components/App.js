@@ -6,6 +6,7 @@ import { handleInitialData } from '../actions/shared';
 import Nav from './Nav';
 import Login from './Login';
 import QuestionList from './QuestionList';
+import Question from './Question';
 
 class App extends Component {
     componentDidMount() {
@@ -25,6 +26,9 @@ class App extends Component {
                         ? <Login />
                         : <div>
                             <Route path='/' exact component={QuestionList} />
+                            <Route path='/questions/:qid' render={({ match }) => (
+                                <Question id={match.params.qid} />
+                            )} />
                         </div>
                     }
                 </div>
