@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import QuestionCard from './QuestionCard';
 
 class QuestionList extends Component {
     static VAL_UNANSWERED = 0;
@@ -47,7 +48,7 @@ class QuestionList extends Component {
                 <ul>
                     {questionIds.map(qid => (
                         <li key={qid}>
-                            {qid}
+                            <QuestionCard id={qid} />
                         </li>
                     ))}
                 </ul>
