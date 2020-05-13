@@ -23,8 +23,13 @@ class Question extends Component {
     }
 
     render() {
-        const { author, question, answered } = this.props;
+        const { author, question, userAnswer } = this.props;
         const { answer } = this.state;
+
+        let totalVotes = 0
+        Question.POSSIBLE_ANSWERS.forEach(option => {
+            totalVotes += question[option].votes.length;
+        })
 
         return (
             <div className='center'>
@@ -38,11 +43,22 @@ class Question extends Component {
                         />
                         <p><strong>Author:</strong> {author.name}</p>
                     </div>
-                    {answered === true
+                    {userAnswer !== null
                         ? (
-                            <div>
-                                Answered
-                            </div>
+                            <ul>
+                                {Question.POSSIBLE_ANSWERS.map(option => (
+                                    <li
+                                        key={option}
+                                        className={userAnswer === option ? 'selected' : ''}
+                                    >
+                                        <p>{question[option].text}</p>
+                                        <p>
+                                            {question[option].votes.length}/{totalVotes} votes
+                                            ({Math.round(question[option].votes.length * 100 / totalVotes)}%)
+                                        </p>
+                                    </li>
+                                ))}
+                            </ul>
                         ) : (
                             <form onSubmit={this.onSubmit}>
                                 {Question.POSSIBLE_ANSWERS.map(option => (
@@ -72,12 +88,15 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
     const authorId = question.author;
     const author = users[authorId];
     const userAnswersSet = new Set(Object.keys(users[authedUser].answers));
+    const userAnswer = userAnswersSet.has(id)
+        ? users[authedUser].answers[id]
+        : null
 
     return {
         author,
         question,
         authedUser,
-        answered: userAnswersSet.has(id),
+        userAnswer,
     }
 }
 
