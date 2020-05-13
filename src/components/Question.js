@@ -26,6 +26,10 @@ class Question extends Component {
         const { author, question, userAnswer } = this.props;
         const { answer } = this.state;
 
+        if (question === null) {
+            return <h1 className='center'>404. This question doesn't exist</h1>
+        }
+
         let totalVotes = 0
         Question.POSSIBLE_ANSWERS.forEach(option => {
             totalVotes += question[option].votes.length;
@@ -84,11 +88,14 @@ class Question extends Component {
 }
 
 function mapStateToProps({ users, questions, authedUser }, { id }) {
-    const question = questions[id];
-    const authorId = question.author;
-    const author = users[authorId];
-    const userAnswersSet = new Set(Object.keys(users[authedUser].answers));
-    const userAnswer = userAnswersSet.has(id)
+    const question = Object.keys(questions).includes(id)
+        ? questions[id]
+        : null;
+    const author = question !== null
+        ? users[question.author]
+        : null;
+    const userAnswers = Object.keys(users[authedUser].answers);
+    const userAnswer = userAnswers.includes(id)
         ? users[authedUser].answers[id]
         : null
 
