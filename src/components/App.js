@@ -7,6 +7,7 @@ import Nav from './Nav';
 import Login from './Login';
 import QuestionList from './QuestionList';
 import Question from './Question';
+import NewQuestion from './NewQuestion';
 
 class App extends Component {
     componentDidMount() {
@@ -26,6 +27,7 @@ class App extends Component {
                         ? <Login />
                         : <div>
                             <Route path='/' exact component={QuestionList} />
+                            <Route path='/new' component={NewQuestion} />
                             <Route path='/questions/:qid' render={({ match }) => (
                                 <Question id={match.params.qid} />
                             )} />

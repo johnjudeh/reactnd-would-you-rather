@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleAnswerQuestion } from '../actions/questions';
+import { POSSIBLE_OPTIONS } from '../constants';
 
 class Question extends Component {
-    static POSSIBLE_ANSWERS = ['optionOne', 'optionTwo'];
-
     state = {
         answer: null,
     }
@@ -27,11 +26,11 @@ class Question extends Component {
         const { answer } = this.state;
 
         if (question === null) {
-            return <h1 className='center'>404. This question doesn't exist</h1>
+            return <h1 className='center'>404. This poll doesn't exist</h1>
         }
 
         let totalVotes = 0
-        Question.POSSIBLE_ANSWERS.forEach(option => {
+        POSSIBLE_OPTIONS.forEach(option => {
             totalVotes += question[option].votes.length;
         })
 
@@ -50,7 +49,7 @@ class Question extends Component {
                     {userAnswer !== null
                         ? (
                             <ul>
-                                {Question.POSSIBLE_ANSWERS.map(option => (
+                                {POSSIBLE_OPTIONS.map(option => (
                                     <li
                                         key={option}
                                         className={userAnswer === option ? 'selected' : ''}
@@ -65,7 +64,7 @@ class Question extends Component {
                             </ul>
                         ) : (
                             <form onSubmit={this.onSubmit}>
-                                {Question.POSSIBLE_ANSWERS.map(option => (
+                                {POSSIBLE_OPTIONS.map(option => (
                                     <label key={option}>
                                         <input
                                             type='radio'
