@@ -35,9 +35,9 @@ class Question extends Component {
         })
 
         return (
-            <div className='center'>
+            <div className='center inner-container'>
                 <h1>Would You Rather...</h1>
-                <div className='user-card'>
+                <div className='card'>
                     <div className='avatar-container'>
                         <img
                             src={author.avatarURL}
@@ -48,13 +48,13 @@ class Question extends Component {
                     </div>
                     {userAnswer !== null
                         ? (
-                            <ul>
+                            <ul className='question-container'>
                                 {POSSIBLE_OPTIONS.map(option => (
                                     <li
                                         key={option}
-                                        className={userAnswer === option ? 'selected' : ''}
+                                        className={userAnswer === option ? 'answer chosen' : 'answer'}
                                     >
-                                        <p>{question[option].text}</p>
+                                        <p className='answer-text'>{question[option].text}</p>
                                         <p>
                                             {question[option].votes.length}/{totalVotes} votes
                                             ({Math.round(question[option].votes.length * 100 / totalVotes)}%)
@@ -63,9 +63,9 @@ class Question extends Component {
                                 ))}
                             </ul>
                         ) : (
-                            <form onSubmit={this.onSubmit}>
+                            <form onSubmit={this.onSubmit} className='question-container middle'>
                                 {POSSIBLE_OPTIONS.map(option => (
-                                    <label key={option}>
+                                    <div key={option} className='option'>
                                         <input
                                             type='radio'
                                             name='answer'
@@ -73,10 +73,18 @@ class Question extends Component {
                                             checked={answer === option}
                                             onChange={this.onAnswerChange}
                                         />
-                                        {question[option].text}
-                                    </label>
+                                        <label>
+                                            {question[option].text}
+                                        </label>
+                                    </div>
                                 ))}
-                                <button type='submit'>Submit</button>
+                                <button
+                                    className='btn'
+                                    type='submit'
+                                    disabled={answer === null}
+                                >
+                                    Submit
+                                </button>
                             </form>
                         )
                     }

@@ -48,7 +48,7 @@ class QuestionList extends Component {
                         </div>
                     ))}
                 </div>
-                <ul className='question-list'>
+                <ul className='inner-container'>
                     {questionIds.map(qid => (
                         <li key={qid}>
                             <QuestionCard id={qid} />

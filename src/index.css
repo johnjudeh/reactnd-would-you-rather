@@ -17,6 +17,10 @@ a {
     color: black;
 }
 
+.nav-link:hover {
+    font-weight: 800;
+}
+
 ul {
     padding-left: 0;
     list-style: none;
@@ -39,6 +43,12 @@ ul {
 
 .clickable:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .loading-bar {
@@ -107,8 +117,10 @@ ul {
 
 .avatar-container {
     width: 140px;
-    text-align: center;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .avatar {
@@ -157,7 +169,7 @@ ul {
     color: rgba(0,0,0,0.3);
 }
 
-.question-list {
+.inner-container {
     max-width: 600px;
     margin: 20px auto;
 }
@@ -166,4 +178,47 @@ ul {
     width: calc(100% - 230px);
     text-align: left;
     padding-left: 50px;
+}
+
+.option {
+    margin: 10px;
+}
+
+.answer {
+    padding: 0 0 5px 20px;
+}
+
+.answer-text {
+    font-weight: 800;
+}
+
+.chosen {
+    border-left: red 4px solid;
+}
+
+.chosen::after {
+    content: 'YOUR VOTE';
+    color: red;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn {
+    margin: 10px 0 0 10px;
+    max-width: 150px;
+    height: 30px;
+    background-color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px rgba(0,0,0,0.1) solid;
+}
+
+.btn:not(:disabled):hover, .btn:not(:disabled):focus {
+    background-color: red;
+    color: white;
+    font-weight: 800;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
 }
