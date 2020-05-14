@@ -21,9 +21,10 @@ class NewQuestion extends Component {
         e.preventDefault();
         const { dispatch, authedUser, history } = this.props;
         const formValues = Object.values(this.state);
-        dispatch(handleCreateQuestion(...formValues, authedUser));
+
         // Redirect to home page on success
-        history.push('/');
+        dispatch(handleCreateQuestion(...formValues, authedUser))
+            .then(() => history.push('/'));
     }
 
     render() {

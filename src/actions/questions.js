@@ -1,3 +1,4 @@
+import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import { saveQuestionAnswer, saveQuestion } from "../utils/api";
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
@@ -30,18 +31,22 @@ export function createQuestion(question, author) {
 
 export function handleAnswerQuestion(authedUser, id, answer) {
     return (dispatch) => {
+        dispatch(showLoading());
         return saveQuestionAnswer(authedUser, id, answer)
             .then(() => {
                 dispatch(answerQuestion(authedUser, id, answer));
+                dispatch(hideLoading());
             })
     }
 }
 
 export function handleCreateQuestion(optionOneText, optionTwoText, author) {
     return (dispatch) => {
+        dispatch(showLoading());
         return saveQuestion(optionOneText, optionTwoText, author)
             .then(question => {
                 dispatch(createQuestion(question, author));
+                dispatch(hideLoading());
             });
     }
 }
