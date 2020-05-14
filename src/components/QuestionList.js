@@ -31,21 +31,24 @@ class QuestionList extends Component {
         return (
             <div className='center'>
                 <h1>Poll List</h1>
-                <div>
+                <div className='tabs'>
                     {QuestionList.VAL_LABELS.map((label, val) => (
-                        <label key={label}>
-                            {label}
+                        <div key={label} className='tab'>
                             <input
                                 type='radio'
                                 name='filter'
+                                id={val}
                                 value={val}
                                 checked={filter === val}
                                 onChange={this.onFilterChange}
                             />
-                        </label>
+                            <label htmlFor={val}>
+                                {label}
+                            </label>
+                        </div>
                     ))}
                 </div>
-                <ul>
+                <ul className='question-list'>
                     {questionIds.map(qid => (
                         <li key={qid}>
                             <QuestionCard id={qid} />

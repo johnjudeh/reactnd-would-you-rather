@@ -5,9 +5,8 @@ import { Link } from 'react-router-dom';
 function QuestionCard(props) {
     const { author, question, id } = props;
 
-    // TODO: Come back for styles
     return (
-        <div className='user-card'>
+        <Link to={`/questions/${id}`} className='card card--question clickable'>
             <div className='avatar-container'>
                 <img
                     src={author.avatarURL}
@@ -16,17 +15,14 @@ function QuestionCard(props) {
                 />
                 <p><strong>Author:</strong> {author.name}</p>
             </div>
-            <div>
+            <div className='question-container'>
                 <h3>Would You Rather...</h3>
                 <div>
-                    <p>{question.optionOne.text}</p>
-                    <p>{question.optionTwo.text}</p>
-                    <Link to={`/questions/${id}`}>
-                        View Poll
-                        </Link>
+                    <p>a) {question.optionOne.text}</p>
+                    <p>b) {question.optionTwo.text}</p>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

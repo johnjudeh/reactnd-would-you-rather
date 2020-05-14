@@ -12,7 +12,7 @@ class UserCard extends Component {
         const { user } = this.props;
 
         return (
-            <div className='user-card' onClick={this.login}>
+            <div className='card clickable' onClick={this.login}>
                 <div className='avatar-container'>
                     <img
                         className='avatar'

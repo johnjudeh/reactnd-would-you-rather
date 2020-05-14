@@ -29,6 +29,16 @@ ul {
 .selected,
 .bold {
     font-weight: 800;
+    padding-bottom: 2px;
+    border-bottom: red 3px solid;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .loading-bar {
@@ -64,6 +74,7 @@ ul {
     align-items: center;
     padding: 20px;
     height: 40px;
+    font-size: 18px;
 }
 
 .logout:hover {
@@ -87,15 +98,11 @@ ul {
     margin: 0;
 }
 
-.user-card {
+.card {
     display: flex;
     max-width: 100%;
-    padding: 10px 20px;
+    padding: 15px 20px;
     border: rgba(0,0,0,0.1) 1px solid;
-}
-
-.user-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .avatar-container {
@@ -114,4 +121,49 @@ ul {
 
 .username-container {
     padding-left: 15px;
+}
+
+.tabs {
+    max-width: 250px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+}
+
+.tab {
+    width: 50%;
+}
+
+.tab > label {
+    cursor: pointer;
+}
+
+.tab > input[type="radio"] {
+    appearance: none;
+}
+
+.tab > input[type="radio"]:checked + label {
+    font-weight: 800;
+    padding-bottom: 2px;
+    border-bottom: red 3px solid;
+}
+
+.card--question:hover::after {
+    content: 'VIEW';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0,0,0,0.3);
+}
+
+.question-list {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.question-container {
+    width: calc(100% - 230px);
+    text-align: left;
+    padding-left: 50px;
 }
