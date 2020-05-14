@@ -19,7 +19,7 @@ function LeaderboardPosition(props) {
                 <p>{user.name}</p>
             </div>
             <p>Questions asked: {questionsAsked}</p>
-            <p>Questions answers: {questionsAnswered}</p>
+            <p>Questions answered: {questionsAnswered}</p>
             <p>Total: {total}</p>
         </div>
     );

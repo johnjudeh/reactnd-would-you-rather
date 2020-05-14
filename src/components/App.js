@@ -28,7 +28,7 @@ class App extends Component {
                         ? <Login />
                         : <div>
                             <Route path='/' exact component={QuestionList} />
-                            <Route path='/new' component={NewQuestion} />
+                            <Route path='/add' component={NewQuestion} />
                             <Route path='/leaderboard' component={Leaderboard} />
                             <Route path='/questions/:qid' render={({ match }) => (
                                 <Question id={match.params.qid} />

@@ -21,7 +21,7 @@ class Nav extends Component {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/new' activeClassName='selected'>
+                        <NavLink to='/add' activeClassName='selected'>
                             New Poll
                         </NavLink>
                     </li>
