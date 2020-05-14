@@ -58,16 +58,23 @@ class QuestionList extends Component {
     }
 }
 
+const sortByTimestampDesc = (a, b) => b.timestamp - a.timestamp;
+
 function mapStateToProps({ users, questions, authedUser }) {
+    const sortedQuestions = Object.values(questions).sort(sortByTimestampDesc);
+
     const answeredQuestionIds = Object.keys(users[authedUser].answers);
-    const answeredQuestionIdsSet = new Set(answeredQuestionIds);
-    const questionIds = Object.keys(questions);
+    const sortedAnsweredQuestionIds = sortedQuestions.filter(q => {
+        return answeredQuestionIds.includes(q.id);
+    }).map(q => q.id);
+
+    const sortedUnansweredQuestionIds = sortedQuestions.filter(q => {
+        return !answeredQuestionIds.includes(q.id);
+    }).map(q => q.id);
 
     return {
-        answeredQuestionIds,
-        unansweredQuestionIds: questionIds.filter(qid => {
-            return !answeredQuestionIdsSet.has(qid);
-        }),
+        answeredQuestionIds: sortedAnsweredQuestionIds,
+        unansweredQuestionIds: sortedUnansweredQuestionIds,
     }
 }
 
