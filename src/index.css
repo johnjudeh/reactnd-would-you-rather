@@ -127,6 +127,9 @@ ul {
 
 .card-left {
     width: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .card--question:hover::after {

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleAnswerQuestion } from '../actions/questions';
 import { POSSIBLE_OPTIONS } from '../constants';
+import AvatarCard from './AvatarCard';
 
-class Question extends Component {
+class QuestionDetail extends Component {
     state = {
         answer: null,
     }
@@ -38,13 +39,10 @@ class Question extends Component {
             <div className='center inner-container'>
                 <h1>Would You Rather...</h1>
                 <div className='card'>
-                    <div className='avatar-container'>
-                        <img
-                            src={author.avatarURL}
-                            className='avatar'
-                            alt={`Avatar of ${author.name}`}
-                        />
-                        <p><strong>Author:</strong> {author.name}</p>
+                    <div className='card-left'>
+                        <AvatarCard id={author.id}>
+                            <p><strong>Author:</strong> {author.name}</p>
+                        </AvatarCard>
                     </div>
                     {userAnswer !== null
                         ? (
@@ -52,9 +50,14 @@ class Question extends Component {
                                 {POSSIBLE_OPTIONS.map(option => (
                                     <li
                                         key={option}
-                                        className={userAnswer === option ? 'answer chosen' : 'answer'}
+                                        className={userAnswer === option
+                                            ? 'answer chosen'
+                                            : 'answer'
+                                        }
                                     >
-                                        <p className='answer-text'>{question[option].text}</p>
+                                        <p className='answer-text'>
+                                            {question[option].text}
+                                        </p>
                                         <p>
                                             {question[option].votes.length}/{totalVotes} votes
                                             ({Math.round(question[option].votes.length * 100 / totalVotes)}%)
@@ -63,7 +66,10 @@ class Question extends Component {
                                 ))}
                             </ul>
                         ) : (
-                            <form onSubmit={this.onSubmit} className='question-container middle'>
+                            <form
+                                onSubmit={this.onSubmit}
+                                className='question-container middle'
+                            >
                                 {POSSIBLE_OPTIONS.map(option => (
                                     <div key={option} className='option'>
                                         <input
@@ -115,4 +121,4 @@ function mapStateToProps({ users, questions, authedUser }, { id }) {
     }
 }
 
-export default connect(mapStateToProps)(Question);
+export default connect(mapStateToProps)(QuestionDetail);
