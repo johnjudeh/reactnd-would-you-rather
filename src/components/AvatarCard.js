@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { PROPTYPE_SHAPE_USER } from '../constants';
 
 function AvatarCard(props) {
     const { user, children } = props;
@@ -14,6 +16,12 @@ function AvatarCard(props) {
             {children}
         </div>
     );
+}
+
+AvatarCard.propTypes = {
+    id: PropTypes.string.isRequired,
+    user: PropTypes.shape(PROPTYPE_SHAPE_USER).isRequired,
+    children: PropTypes.element,
 }
 
 function mapStateToProps({ users }, { id }) {
