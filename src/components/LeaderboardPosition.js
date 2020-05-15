@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import AvatarCard from './AvatarCard';
 
 function LeaderboardPosition(props) {
     const { position, user } = props;
@@ -9,20 +10,17 @@ function LeaderboardPosition(props) {
 
     return (
         <div className='card'>
-            <p className='position'>{position}</p>
-            <div className='avatar-container'>
-                <img
-                    src={user.avatarURL}
-                    className='avatar'
-                    alt={`Avatar of ${user.name}`}
-                />
-                <p>{user.name}</p>
+            <div className='position'>{position}</div>
+            <div className='card-left'>
+                <AvatarCard id={user.id}>
+                    <p>{user.name}</p>
+                </AvatarCard>
             </div>
-            <div className='middle position-middle'>
+            <div className='position-middle middle'>
                 <p>Questions asked: {questionsAsked}</p>
                 <p>Questions answered: {questionsAnswered}</p>
             </div>
-            <div className='middle position-total'>
+            <div className='position-total middle'>
                 <p>{total}</p>
                 <p>Total</p>
             </div>
