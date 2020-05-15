@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import LeaderboardPosition from './LeaderboardPosition';
 
 function Leaderboard(props) {
@@ -17,6 +18,10 @@ function Leaderboard(props) {
             </ul>
         </div>
     );
+}
+
+Leaderboard.propTypes = {
+    userIds: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 function mapStateToProps({ users }) {

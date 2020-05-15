@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import AvatarCard from './AvatarCard';
+import { PROPTYPE_SHAPE_USER } from '../constants';
 
 function LeaderboardPosition(props) {
     const { position, user } = props;
@@ -26,6 +28,12 @@ function LeaderboardPosition(props) {
             </div>
         </div>
     );
+}
+
+LeaderboardPosition.propTypes = {
+    id: PropTypes.string.isRequired,
+    position: PropTypes.number.isRequired,
+    user: PropTypes.shape(PROPTYPE_SHAPE_USER),
 }
 
 function mapStateToProps({ users }, { id }) {
