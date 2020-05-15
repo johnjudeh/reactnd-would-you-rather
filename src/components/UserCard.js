@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser';
+import AvatarCard from './AvatarCard';
 
 class UserCard extends Component {
     login = () => {
@@ -9,19 +10,15 @@ class UserCard extends Component {
     }
 
     render() {
-        const { user } = this.props;
+        const { user, id } = this.props;
 
         return (
-            <div className='card clickable' onClick={this.login}>
-                <div className='avatar-container'>
-                    <img
-                        className='avatar'
-                        src={user.avatarURL}
-                        alt={`Avatar of ${user.name}`}
-                    />
+            <div className='card card--login clickable' onClick={this.login}>
+                <div className='login-avatar-container'>
+                    <AvatarCard id={id} />
                 </div>
                 <div className='username-container'>
-                    <p className='bold'>{user.name}</p>
+                    <p className='username-name bold'>{user.name}</p>
                     <p>@{user.id}</p>
                 </div>
             </div>

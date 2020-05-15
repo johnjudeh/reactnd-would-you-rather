@@ -114,6 +114,10 @@ ul {
     margin: 0;
 }
 
+.login-avatar-container {
+    width: 100px;
+}
+
 .card {
     display: flex;
     max-width: 100%;
@@ -123,6 +127,22 @@ ul {
 
 .card-left {
     width: 140px;
+}
+
+.card--question:hover::after {
+    content: 'VIEW';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0,0,0,0.3);
+}
+
+.card--login:hover::after {
+    content: 'LOGIN';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0,0,0,0.3);
 }
 
 .avatar-card {
@@ -138,7 +158,12 @@ ul {
 }
 
 .username-container {
-    padding-left: 15px;
+    padding-left: 25px;
+    width: 180px;
+}
+
+.username-name {
+    width: fit-content;
 }
 
 .tabs {
@@ -165,14 +190,6 @@ ul {
     font-weight: 800;
     padding-bottom: 2px;
     border-bottom: red 3px solid;
-}
-
-.card--question:hover::after {
-    content: 'VIEW';
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: rgba(0,0,0,0.3);
 }
 
 .inner-container {
