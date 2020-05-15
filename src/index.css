@@ -28,6 +28,8 @@ ul {
 
 .center {
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .selected,
@@ -204,8 +206,9 @@ ul {
 }
 
 .btn {
-    margin: 10px 0 0 10px;
-    max-width: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 180px;
     height: 30px;
     background-color: white;
     font-size: 14px;
@@ -221,4 +224,13 @@ ul {
 
 .btn:disabled {
     cursor: not-allowed;
+}
+
+.option-input {
+    margin: 10px;
+}
+
+.option-input > label {
+    margin-right: 10px;
+    font-weight: 700;
 }

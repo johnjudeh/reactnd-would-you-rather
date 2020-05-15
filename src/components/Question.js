@@ -69,11 +69,12 @@ class Question extends Component {
                                         <input
                                             type='radio'
                                             name='answer'
+                                            id={option}
                                             value={option}
                                             checked={answer === option}
                                             onChange={this.onAnswerChange}
                                         />
-                                        <label>
+                                        <label htmlFor={option}>
                                             {question[option].text}
                                         </label>
                                     </div>

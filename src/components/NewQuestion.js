@@ -31,19 +31,33 @@ class NewQuestion extends Component {
         return (
             <div className='center'>
                 <h1>Would You Rather...</h1>
-                <form onSubmit={this.onSubmit}>
+                <form
+                    onSubmit={this.onSubmit}
+                    className='inner-container middle'
+                >
                     {POSSIBLE_OPTIONS.map(option => (
-                        <label key={option}>
-                            {OPTION_LABELS[option]}
+                        <div key={option} className='option-input'>
+                            <label htmlFor={option}>
+                                {OPTION_LABELS[option]}
+                            </label>
                             <input
                                 type='text'
                                 name={option}
+                                id={option}
                                 value={this.state[option]}
                                 onChange={this.onInputChange}
                             />
-                        </label>
+                        </div>
                     ))}
-                    <button type='submit'>Create Poll</button>
+                    <button
+                        type='submit'
+                        className='btn center'
+                        disabled={POSSIBLE_OPTIONS.some(option => {
+                            return this.state[option] === '';
+                        })}
+                    >
+                        Create Poll
+                    </button>
                 </form>
             </div>
         );
