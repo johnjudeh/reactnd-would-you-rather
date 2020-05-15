@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { unsetAuthedUser } from '../actions/authedUser';
+import AvatarCard from './AvatarCard';
 
 class Nav extends Component {
     logout = () => {
@@ -50,12 +51,8 @@ class Nav extends Component {
                         <li>
                             {user.name}
                         </li>
-                        <li>
-                            <img
-                                src={user.avatarURL}
-                                className='avatar--small'
-                                alt={`Avatar of ${user.name}`}
-                            />
+                        <li className='nav-item-avatar'>
+                            <AvatarCard id={user.id} />
                         </li>
                         <li
                             className='logout'

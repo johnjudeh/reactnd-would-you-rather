@@ -89,6 +89,10 @@ ul {
     font-size: 18px;
 }
 
+.nav-item-avatar {
+    width: 40px;
+}
+
 .logout:hover {
     font-weight: 800;
     cursor: pointer;
@@ -117,8 +121,12 @@ ul {
     border: rgba(0,0,0,0.1) 1px solid;
 }
 
-.avatar-container {
+.card-left {
     width: 140px;
+}
+
+.avatar-card {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -126,11 +134,7 @@ ul {
 }
 
 .avatar {
-    width: 100px;
-}
-
-.avatar--small {
-    width: 40px;
+    width: 100%;
 }
 
 .username-container {
