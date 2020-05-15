@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import QuestionCard from './QuestionCard';
 
 class QuestionList extends Component {
+    static propTypes = {
+        answeredQuestionIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+        unansweredQuestionIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }
+
     static VAL_UNANSWERED = 0;
     static VAL_ANSWERED = 1;
     static VAL_LABELS = ['Unanswered', 'Answered'];

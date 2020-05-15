@@ -2,15 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LoadingBar from 'react-redux-loading-bar';
 import { Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { handleInitialData } from '../actions/shared';
 import Nav from './Nav';
 import Login from './Login';
 import QuestionList from './QuestionList';
-import Question from './Question';
+import QuestionDetail from './QuestionDetail';
 import NewQuestion from './NewQuestion';
 import Leaderboard from './Leaderboard';
 
 class App extends Component {
+    static propTypes = {
+        userLoggedIn: PropTypes.bool.isRequired,
+        dispatch: PropTypes.func.isRequired,
+    }
+
     componentDidMount() {
         const { dispatch } = this.props;
         dispatch(handleInitialData());
@@ -31,7 +37,7 @@ class App extends Component {
                             <Route path='/add' component={NewQuestion} />
                             <Route path='/leaderboard' component={Leaderboard} />
                             <Route path='/questions/:qid' render={({ match }) => (
-                                <Question id={match.params.qid} />
+                                <QuestionDetail id={match.params.qid} />
                             )} />
                         </div>
                     }

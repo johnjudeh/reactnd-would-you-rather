@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import UserCard from './UserCard';
 
 function Login({ userIds }) {
@@ -17,6 +18,10 @@ function Login({ userIds }) {
             </ul>
         </div>
     );
+}
+
+Login.propTypes = {
+    userIds: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 function mapStateToProps({users}) {

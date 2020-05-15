@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import AvatarCard from './AvatarCard';
+import { PROPTYPE_SHAPE_QUESTION, PROPTYPE_SHAPE_USER } from '../constants';
 
 function QuestionCard(props) {
     const { author, question, id } = props;
@@ -22,6 +24,12 @@ function QuestionCard(props) {
             </div>
         </Link>
     )
+}
+
+QuestionCard.propTypes = {
+    id: PropTypes.string.isRequired,
+    question: PropTypes.shape(PROPTYPE_SHAPE_QUESTION).isRequired,
+    author: PropTypes.shape(PROPTYPE_SHAPE_USER).isRequired,
 }
 
 function mapStateToProps({ users, questions }, { id }) {

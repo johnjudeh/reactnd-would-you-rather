@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { POSSIBLE_OPTIONS, OPTION_LABELS } from '../constants';
 import { handleCreateQuestion } from '../actions/questions';
 import { connect } from 'react-redux';
 
 class NewQuestion extends Component {
+    static propTypes = {
+        authedUser: PropTypes.string.isRequired,
+        dispatch: PropTypes.func.isRequired,
+        history: PropTypes.object.isRequired,
+    }
+
     constructor(props) {
         super(props);
         let initialState = {};
