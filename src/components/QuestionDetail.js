@@ -12,8 +12,8 @@ import {
 class QuestionDetail extends Component {
     static propTypes = {
         id: PropTypes.string.isRequired,
-        author: PropTypes.shape(PROPTYPE_SHAPE_USER).isRequired,
-        question: PropTypes.shape(PROPTYPE_SHAPE_QUESTION).isRequired,
+        author: PropTypes.shape(PROPTYPE_SHAPE_USER),
+        question: PropTypes.shape(PROPTYPE_SHAPE_QUESTION),
         authedUser: PropTypes.string.isRequired,
         userAnswer: PropTypes.oneOf(POSSIBLE_OPTIONS),
         dispatch: PropTypes.func.isRequired,
