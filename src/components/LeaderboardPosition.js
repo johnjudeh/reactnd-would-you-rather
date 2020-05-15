@@ -8,9 +8,9 @@ function LeaderboardPosition(props) {
     const total = questionsAsked + questionsAnswered;
 
     return (
-        <div>
+        <div className='card'>
+            <p className='position'>{position}</p>
             <div className='avatar-container'>
-                <p>#{position}</p>
                 <img
                     src={user.avatarURL}
                     className='avatar'
@@ -18,9 +18,14 @@ function LeaderboardPosition(props) {
                 />
                 <p>{user.name}</p>
             </div>
-            <p>Questions asked: {questionsAsked}</p>
-            <p>Questions answered: {questionsAnswered}</p>
-            <p>Total: {total}</p>
+            <div className='middle position-middle'>
+                <p>Questions asked: {questionsAsked}</p>
+                <p>Questions answered: {questionsAnswered}</p>
+            </div>
+            <div className='middle position-total'>
+                <p>{total}</p>
+                <p>Total</p>
+            </div>
         </div>
     );
 }

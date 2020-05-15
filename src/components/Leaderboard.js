@@ -8,7 +8,7 @@ function Leaderboard(props) {
     return (
         <div className='center'>
             <h1>Leaderboard</h1>
-            <ul>
+            <ul className='inner-container'>
                 {userIds.map((uid, pos) => (
                     <li key={uid}>
                         <LeaderboardPosition position={pos + 1} id={uid} />
