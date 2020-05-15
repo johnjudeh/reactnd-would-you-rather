@@ -25,6 +25,7 @@ Leaderboard.propTypes = {
 }
 
 function mapStateToProps({ users }) {
+    // Sort users by sum of asked and answered questions in desc order
     const sortedUsers = Object.values(users).sort((a, b) => {
         const aTotalQuestions = a.questions.length + Object.keys(a.answers).length;
         const bTotalQuestions = b.questions.length + Object.keys(b.answers).length;

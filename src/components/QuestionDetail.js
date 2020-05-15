@@ -116,6 +116,8 @@ class QuestionDetail extends Component {
 }
 
 function mapStateToProps({ users, questions, authedUser }, { id }) {
+    // Needs to handle case where question id is invalid. That's what the
+    // ternary operators are for.
     const question = Object.keys(questions).includes(id)
         ? questions[id]
         : null;

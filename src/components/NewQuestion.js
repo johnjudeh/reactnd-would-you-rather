@@ -13,6 +13,9 @@ class NewQuestion extends Component {
 
     constructor(props) {
         super(props);
+        // Dynamically builds the state based on possible options.
+        // This makes it easy to add another option or change the
+        // values of the options later
         let initialState = {};
         POSSIBLE_OPTIONS.forEach(option => initialState[option] = '');
         this.state = initialState;
